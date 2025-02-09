@@ -76,3 +76,16 @@ button:active {
   user-select: none;
   animation: fall linear infinite;
 }
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  animation: confetti-fall linear infinite;
+}
