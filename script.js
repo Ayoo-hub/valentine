@@ -16,3 +16,39 @@ document.addEventListener("DOMContentLoaded", function() {
         noBtn.style.top = `${y}px`;
     });
 });
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.classList.add("heart");
+  document.body.appendChild(heart);
+
+  const startPos = Math.random() * window.innerWidth;
+  heart.style.left = `${startPos}px`;
+  heart.style.animationDuration = `${3 + Math.random() * 2}s`;
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 500);
+
+function createConfetti() {
+  const confetti = document.createElement("div");
+  confetti.classList.add("confetti");
+  document.body.appendChild(confetti);
+
+  confetti.style.left = `${Math.random() * 100}vw`;
+  confetti.style.animationDuration = `${2 + Math.random() * 3}s`;
+  confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+  setTimeout(() => {
+    confetti.remove();
+  }, 4000);
+}
+
+document.getElementById("yesButton").addEventListener("click", () => {
+  for (let i = 0; i < 50; i++) {
+    setTimeout(createConfetti, i * 50);
+  }
+});
